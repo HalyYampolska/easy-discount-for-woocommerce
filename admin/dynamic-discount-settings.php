@@ -3,8 +3,7 @@
     <tr valign="top">
         <th scope="row"><?php _e( 'Enable Dynamic Discounts', 'woocommerce_dynamic_discount' ); ?></th>
         <td>
-            <?php $enable_dynamic_discount = get_option( 'enable_dynamic_discount', 'no' ); ?>
-            <input type="checkbox" name="enable_dynamic_discount" <?php echo $enable_dynamic_discount == 'yes' ? 'checked' : ''; ?> />
+            <?php include(dirname( __FILE__ ) . '/../includes/toggler-for-discount/toggler-for-discount.php'); ?>
         </td>
     </tr>
     <tr valign="top">

@@ -18,22 +18,26 @@ class Dynamic_Discount_Plugin {
         add_action( 'woocommerce_cart_calculate_fees', array( $this, 'apply_dynamic_discount'));
     }
 
+    // Add new tab in Woocommerce settings    
     public function add_dynamic_discount_tab( $tabs ) {
         $tabs['dynamic_discount'] = __( 'Dynamic Discount', 'woocommerce_dynamic_discount' );
         return $tabs;
     }
 
+    // Display settings
     public function dynamic_discount_settings_tab() {
         include plugin_dir_path( __FILE__ ) . 'admin/dynamic-discount-settings.php';
     }
 
+    // Save settings
     public function save_dynamic_discount_settings() {
         require_once( 'admin/save-dynamic-discount-settings.php' );
         Dynamic_Discount_Settings::save_settings();
     }
 
+    // Include logic for dynamic counting
     public function apply_dynamic_discount() {
-        include plugin_dir_path( __FILE__ ) . 'includes/apply-dynamic-discount.php';
+        include plugin_dir_path( __FILE__ ) . 'admin/apply-dynamic-discount.php';
     }
 }
 
